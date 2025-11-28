@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Model untuk File yang diupload
+model File {
+  id        String   @id @default(cuid())
+  name      String
+  url       String
+  size      Int
+  type      String
+  userId    String   // ID dari Clerk
+  userName  String
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
