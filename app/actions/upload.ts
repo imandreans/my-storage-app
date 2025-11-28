@@ -1,3 +1,5 @@
+"use client";
+
 import { auth, currentUser } from "@clerk/nextjs/server";
 import prisma from "@/lib/db";
 import { put } from "@vercel/blob";
